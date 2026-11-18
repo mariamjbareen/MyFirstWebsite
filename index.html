@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes from the Margins | A Literary Journal</title>
+
+  <style>
+    :root {
+      --bg: #171614;
+      --panel: #25211e;
+      --wine: #573039;
+      --gold: #b49a75;
+      --ivory: #e8ded0;
+      --muted: #b8ab9c;
+      --line: #514538;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ivory);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      padding: 23px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-size: 19px;
+      letter-spacing: 1px;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 580px;
+      padding: 90px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at center, #322621, #171614 72%);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+    }
+
+    
+.hero h1 {
+    font-size: clamp(32px, 4.5vw, 58px);
+    font-weight: normal;
+    line-height: 1.2;
+    max-width: 1100px;
+    margin: 22px 0;
+}
+
+
+    .hero p {
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .doodle {
+      font-size: 48px;
+      color: var(--gold);
+      margin: 18px 0;
+      letter-spacing: 16px;
+      opacity: 0.8;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 30px;
+      border: 1px solid var(--gold);
+      color: var(--ivory);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    section {
+      scroll-margin-top: 30px;
+    }
+
+    .content {
+      max-width: 1150px;
+      margin: auto;
+      padding: 85px 25px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: 43px;
+      font-weight: normal;
+      margin: 12px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 550px;
+      margin: auto;
+    }
+
+    .quote {
+      padding: 75px 24px;
+      text-align: center;
+      background: #211c1a;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quote blockquote {
+      font-size: clamp(23px, 4vw, 34px);
+      font-style: italic;
+      max-width: 750px;
+      line-height: 1.5;
+      margin: 20px auto;
+    }
+
+    .quote cite {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-style: normal;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 25px;
+    }
+
+    .book-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 17px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .cover {
+      height: 260px;
+      border: 1px dashed #70604d;
+      background: linear-gradient(145deg, #392d2b, #241e1b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-label {
+      position: absolute;
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .book-card h3 {
+      font-weight: normal;
+      font-size: 23px;
+      line-height: 1.3;
+      margin: 20px 0 5px;
+    }
+
+    .author {
+      color: var(--gold);
+      font-size: 13px;
+      margin: 0 0 17px;
+    }
+
+    .review {
+      font-size: 15px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.8;
+      border-top: 1px solid var(--line);
+      padding-top: 15px;
+    }
+
+    .journal {
+      background: #211c1a;
+      border: 1px solid var(--line);
+      padding: 45px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .journal h3 {
+      font-size: 30px;
+      font-weight: normal;
+    }
+
+    .journal p {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 35px 20px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .content {
+        padding: 60px 18px;
+      }
+
+      .journal {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="home">
+    <a class="logo" href="#home">
+      NOTES FROM THE MARGINS ✦
+    </a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#library">The Library</a>
+      <a href="#fragments">Fragments</a>
+      <a href="#journal">The Journal</a>
+    </nav>
+  </header>
+
+  <main>
+
+    
+<section class="hero">
+
+  <div class="eyebrow">
+    A curated collection of books worth reading
+  </div>
+
+  <h1>
+    For those who read to feel,<br>
+    question, and understand.
+  </h1>
+
+  <div class="doodle">☾ ✧</div>
+
+  <p>
+    Discover thought-provoking books, unforgettable stories,
+    and words that stay with you long after the final page.
+  </p>
+
+  <a class="button" href="#library">
+    Explore the Books
+  </a>
+
+</section>
+
+    
+<section class="quote" id="fragments">
+  <div class="eyebrow">
+    Fragments of thought · No. 001
+  </div>
+
+  <blockquote>
+    "There is no greater agony than bearing
+    an untold story inside you."
+  </blockquote>
+
+  <cite>
+    MAYA ANGELOU
+  </cite>
+</section>
+
+
+    <section class="content" id="library">
+
+      <div class="section-heading">
+        <div class="eyebrow">The collection</div>
+
+        <h2>The Library</h2>
+
+        <p>
+          Ten books. Ten different worlds.
+          Each one leaving something behind.
+        </p>
+
+        <div class="doodle">✧ ☾ ✧</div>
+      </div>
+
+      <div class="books-grid" id="booksGrid"></div>
+
+    </section>
+
+    
+<section class="quote">
+  <div class="eyebrow">
+    Fragments of Thought · No. 002
+  </div>
+
+  <blockquote>
+    "I am not the man I was."
+  </blockquote>
+
+  <cite>
+    CHARLES DICKENS · A CHRISTMAS CAROL
+  </cite>
+</section>
+
+
+    <section class="content" id="journal">
+
+      <div class="section-heading">
+        <div class="eyebrow">
+          Between thought and silence
+        </div>
+
+        <h2>The Journal</h2>
+      </div>
+
+      <div class="journal">
+        <div class="doodle">☾ ✧</div>
+
+        <h3>
+          Not every story ends on the last page.
+        </h3>
+
+        <p>
+          Some books offer answers. Others leave us
+          questioning everything we thought we knew.
+          This is a space for the latter.
+        </p>
+
+        <p>
+          A collection of thoughts, reflections,
+          and stories that stay long after reading.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    Notes from the Margins · A personal literary archive
+  </footer>
+
+  <script>
+    // The books and their cover image filenames
+    const books = [
+      ["The Alchemist", "Paulo Coelho", "alchemist.jpg"],
+      ["The Stranger", "Albert Camus", "stranger.jpg"],
+      ["1984", "George Orwell", "1984.jpg"],
+      ["A Little Life", "Hanya Yanagihara", "little-life.jpg"],
+      ["The Idiot", "Fyodor Dostoevsky", "idiot.jpg"],
+      ["Crime and Punishment", "Fyodor Dostoevsky", "crime.jpg"],
+      ["Animal Farm", "George Orwell", "animal-farm.jpg"],
+      ["The Metamorphosis", "Franz Kafka", "metamorphosis.jpg"],
+      ["A Thousand Splendid Suns", "Khaled Hosseini", "thousand-suns.jpg"],
+      ["Lolita", "Vladimir Nabokov", "lolita.jpg"]
+    ];
+
+    // Your chosen literary quotes
+    const bookQuotes = [
+      "When you want something, all the universe conspires in helping you to achieve it.",
+
+      "In our society any man who does not weep at his mother's funeral runs the risk of being sentenced to death.",
+
+      "Orthodoxy means not thinking—not needing to think.",
+
+      "Everything he has learned tells him to leave;",
+
+      "Compassion is the chief law of human existence.",
+
+      "Pain and suffering are always inevitable for a large intelligence and a deep heart.",
+
+      "All animals are equal, but some animals are more equal than others.",
+
+      "We have to try and get rid of it.",
+
+      "How quietly we endure all that falls upon us.",
+
+      "Lolita, light of my life, fire of my loins."
+    ];
+
+    // Find the HTML container for the books
+    const grid = document.getElementById("booksGrid");
+
+    // Create one card for each book
+    books.forEach((book, index) => {
+
+      const card = document.createElement("article");
+      card.className = "book-card";
+
+      // Book cover
+      const cover = document.createElement("div");
+      cover.className = "cover";
+
+      const placeholder = document.createElement("span");
+      placeholder.className = "cover-label";
+      placeholder.textContent = "✧ COVER ART ✧";
+      cover.appendChild(placeholder);
+
+      const img = document.createElement("img");
+      img.alt = "Cover of " + book[0];
+      img.src = "images/" + book[2];
+
+      img.onerror = () => {
+        img.remove();
+      };
+
+      cover.appendChild(img);
+
+      // Book title
+      const title = document.createElement("h3");
+      title.textContent = book[0];
+
+      // Author
+      const author = document.createElement("p");
+      author.className = "author";
+      author.textContent = "by " + book[1];
+
+      // Quote
+      const review = document.createElement("p");
+      review.className = "review";
+      review.textContent = "“" + bookQuotes[index] + "”";
+
+      // Add everything to the book card
+      card.append(cover, title, author, review);
+
+      // Display the card on the website
+      grid.appendChild(card);
+
+    });
+  </script>
+
+</body>
+</html>
